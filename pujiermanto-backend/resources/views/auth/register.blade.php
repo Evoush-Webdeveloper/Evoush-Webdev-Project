@@ -11,6 +11,9 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+
+                        <input type="hidden" name="status" value="ACTIVE"/>
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -18,6 +21,20 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                         <div class="form-group row">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -58,6 +75,24 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="row justify-content-start ml-5">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="">Roles</label>
+                                        <br>
+                                        <input
+                                        type="checkbox"
+                                        class="{{$errors->first('roles') ? "is-invalid" : ""}}"
+                                        name="roles[]"
+                                        id="ADMIN"
+                                        value="ADMIN" class="form-control">
+                                        <label for="ADMIN">Administrator</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

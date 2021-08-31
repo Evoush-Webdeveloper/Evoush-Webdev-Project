@@ -14,10 +14,8 @@
                         </div>
                     @endif
 
-                   @if(in_array("ADMIN", json_decode(Auth::user()->roles)))
-                    {{ "__Hallo ".Auth::user()->username." you are login as Administrator" }}
-                    @endif
-
+                    {{ __('You are logged in!') }}
+                    {{ in_array("ADMIN", json_decode(Auth::user()->roles)) ? "ADMINISTRATOR" : "" }}
                 </div>
             </div>
         </div>

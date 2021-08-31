@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +13,10 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [WebsiteController::class, 'home']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/post-list', [PostController::class, 'post_list'])->name('post');
-
-Route::resource('/post', PostController::class);
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Auth::routes();
+Auth::routes(['register' => false, 'login' => true, 'reset' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
