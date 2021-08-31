@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.auth.app')
+@section('title'){{ 'WebDev::Project' }}@endsection
 
 @section('content')
 <div class="container">

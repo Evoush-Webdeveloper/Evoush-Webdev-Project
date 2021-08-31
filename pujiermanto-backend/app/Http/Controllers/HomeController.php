@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $context = [
+            'title' => Auth::user()->username.' Dashboard | WebDev::Project',
+            'brand' => 'WebDev::Project',
+            'url' => $request->segment(1)
+        ];
+
+        return view('pages.dashboard.index', $context);
     }
 }
