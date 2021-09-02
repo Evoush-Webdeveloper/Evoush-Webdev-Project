@@ -27,7 +27,8 @@ class HomeController extends Controller
         $context = [
             'title' => Auth::user()->username.' Dashboard | WebDev::Project',
             'brand' => 'WebDev::Project',
-            'url' => $request->segment(1)
+            'url' => $request->segment(1),
+            'second_url' => $request->segment(2)
         ];
 
         return view('pages.dashboard.index', $context);

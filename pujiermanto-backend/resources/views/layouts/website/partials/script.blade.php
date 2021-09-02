@@ -1,4 +1,4 @@
-@if($url == 'dashboard')
+@if($url === "dashboard")
   <script src="{{ asset('/assets/dashboard/js/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('/assets/dashboard/js/bootstrap.min.js') }}" type="text/javascript"></script>
   <!--  Charts Plugin -->
@@ -23,7 +23,7 @@
 
          $.notify({
              icon: 'pe-7s-gift',
-             message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+             message: "Welcome {{ Auth::user()->name }}, in WebDev::Project"
 
          },{
           type: 'info',

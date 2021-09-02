@@ -24,18 +24,8 @@
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="598" />
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-
-<!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-<link rel="shortcut icon" href="{{ asset('/assets/logo/logo_puji.png') }}">
-
-<!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-@if($url == 'dashboard')
+{{-- {{ $url }} --}}
+@if($url === "dashboard")
 	{{-- dashboard --}}
 	<!-- Bootstrap core CSS     -->
 	<link href="{{ asset('/assets/dashboard/css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -48,8 +38,26 @@
 
 	<!--  CSS for Demo Purpose, don't include it in your project     -->
 	<link href="{{ asset('/assets/dashboard/css/demo.css') }}" rel="stylesheet" />
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 	<link href="{{ asset('/assets/dashboard/css/pe-icon-7-stroke.css') }}" rel="stylesheet" />
+
+@else
+
+	<!-- Scripts -->
+	<script src="{{ asset('js/app.js') }}" defer></script>
+
+	<!-- Fonts -->
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<link rel="shortcut icon" href="{{ asset('/assets/logo/logo_puji.png') }}">
+
+	<!-- Styles -->
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 @endif
+
+
 
 
 {{-- Adsense --}}

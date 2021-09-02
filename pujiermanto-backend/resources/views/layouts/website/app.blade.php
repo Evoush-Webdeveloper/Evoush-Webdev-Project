@@ -19,14 +19,47 @@
 
 
     @if($url !== "dashboard")
-        @include('layouts.website.partials.navigation')
+    @include('layouts.website.partials.navigation')
     @endif
 
+    @if($url !== "dashboard")
     <main class="py-4">
         @yield('content')
     </main>
+    @else
 
-    @include('layouts.website.partials.script')
+    <div class="wrapper">
+        @include('layouts.website.partials.dashboard.sidebar')
+
+        <div class="main-panel">
+
+        @include('layouts.website.partials.dashboard.navbar')
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                </div>
+
+
+
+                <div class="row">
+                 @yield('content')
+             </div>
+         </div>
+        </div>
+
+
+        {{-- @include('layouts.website.partials.dashboard.footer') --}}
+
+
+    </div>
+</div>
+@endif
+
+
+@include('layouts.website.partials.script')
 
 </body>
 </html>

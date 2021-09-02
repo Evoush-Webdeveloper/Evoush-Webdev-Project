@@ -56,11 +56,13 @@ class UserController extends Controller
         $context = [
             'title' => 'User List',
             'brand' => 'WebDev::Project',
-            'user' => User::where('name', Auth::user()->name)->paginate(10),
+            'url' => $request->segment(1),
+            'second_url' => $request->segment(2),
+            'users' => User::where('name', Auth::user()->name)->paginate(10),
             // 'users' => User::where('name', Auth::user()->name)->paginate(10)
-            'users' => response()->json([
-                'data' => $users
-            ])
+            // 'users' => response()->json([
+            //     'data' => $users
+            // ])
         ];
 
         return view('pages.dashboard.users.index', $context);
