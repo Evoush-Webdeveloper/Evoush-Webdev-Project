@@ -22,3 +22,5 @@ const LogOut = () => {
 	}
 	alert("Ok lah!")
 }
+
+
