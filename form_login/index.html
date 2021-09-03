@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Dong</title>
+
+<style type="text/css">
+	#form-login{
+		max-width: auto;
+		height: 100% auto;
+		background: linear-gradient(to left, coral, #CCCCFF);
+	}
+	#form-login legend{
+		font-size: 1rem;
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+
+	#form-login .form{
+		padding: 175px 675px;
+	}
+	#form-login .form input{
+		border-radius: 5%;
+		box-shadow:  5px 10px #454545;
+	}
+
+	#form-login .form input[name="username"]{
+		width: 500px;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	#form-login .form input[name="password"]{
+		width: 500px;
+		font-size: 1.5rem;
+		margin-bottom: 1.7rem;
+	}
+
+	#form-login .form button{
+		background: linear-gradient(to left, #f8d3f1, #b2e0d2);
+		border: 2;
+		border-radius: 1%;
+		width: 510px;
+		height: 3.2vh;
+		font-size: 1.3rem;
+		box-shadow: 3px 7px #ffbb9a;
+		cursor: pointer;
+		color: #8d7d7d;
+	}
+	#form-login .form button:hover{
+		background: linear-gradient(to right, #8d7d7d, #280137);
+		color: #fff;
+	}
+</style>
+
+</head>
+<body>
+
+<fieldset id="form-login">
+	<!-- <legend>Login disini ajah bang</legend> -->
+
+	<div class="form">
+		<input type="text" name="username" id="username" autocomplete="off" autofocus>
+		<br>
+		<input type="password" name="password" id="password">
+		<br>
+		<button type="button" onclick="LoginKanBang()">Login</button>
+	</div>
+
+</fieldset>
+
+<script type="text/javascript" src="login.js"></script>
+
+<script type="text/javascript">
+	const token = localStorage.getItem('token')
+	UserLogin(token)
+</script>
+
+</body>
+</html>

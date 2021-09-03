@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing Javascript</title>
+<style type="text/css">
+	#cari {
+		height: 30vh;
+	}
+	#cari .kolom{
+		display: flex;
+		padding: 45px 400px;
+		margin-top: 5rem;
+	}
+	#cari .kolom input[name="keyword"]{
+		width: 500px;
+		font-size: 1.7rem;
+	}
+	#cari button{
+		background: linear-gradient(to right, salmon , LightCoral);
+		margin-left: 1.3rem;
+		padding: 5px 45px ;
+		cursor: pointer;
+	}
+	#cari .kolom label{
+		padding: 12px;
+		font-size: 24px;
+		font-weight: 900;
+	}
+	#result{
+		margin-top: 5rem;
+		/*background: rgba(255, 111, 0, 0.5);*/
+		background: linear-gradient(to left, coral, #CCCCFF);
+	}
+	#result legend{
+		color: firebrick;
+		font-weight: 800;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+	}
+	#result h1{
+		color: #ae0cce;
+	}
+</style>
+</head>
+<body>
+
+	<fieldset id="cari">
+		<legend>Cari video youtube</legend>
+		<div class="kolom">
+			<label for="keyword">Ketikan keyword anda </label><br>
+			<input type="text" name="keyword" id="keyword" autofocus>
+			<br>
+			<br>
+			<button onClick="BangNgojekGakBang()">Enter</button>
+		</div>
+	</fieldset>
+
+	<fieldset id="result">
+		<legend>Ini hasilnya bang</legend>
+		<div id="loading"></div>
+		<div id="hasil">
+			<h1>Ko gak muncul bang ... nge bug yah </h1>
+		</div>
+
+	</fieldset>
+
+	<script type="text/javascript" src="script.js"></script>
+
+	<script type="text/javascript" src="dom-script.js"></script>
+
+</body>
+</html>
