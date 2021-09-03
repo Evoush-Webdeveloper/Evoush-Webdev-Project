@@ -2,17 +2,43 @@
 <html>
 <head>
 	<title id="username-title"></title>
+	<style type="text/css">
+		.checked{
+			text-decoration: line-through;
+			color:green;
+		}
+		ul li {
+			list-style: none;
+		}
+		#todo-list li{
+			padding: 12px;
+		}
+		#todo-list li label{
+			font-size: 25px;
+			padding: 12px 25px;
+		}
+		#todo-list li input[type="checkbox"]{
+			width: 25px;
+			height: 25px;
+		}
+
+		#todo-list{
+			border: 2px solid black;
+			border-style: dashed;
+			padding: 25px;
+		}
+	</style>
 </head>
 <body>
 
 	<fieldset>
 		<legend>Selamat Datang</legend>
-	<ul>
-		<li>Home</li>
-		<li>
-			<a href="#" onclick="LogOut()">Logout</a>
-		</li>
-	</ul>
+		<ul>
+			<li>Home</li>
+			<li>
+				<a href="#" onclick="LogOut()">Logout</a>
+			</li>
+		</ul>
 
 		<h1 id="username-body"></h1>
 
@@ -34,39 +60,32 @@
 			<p id="number"></p>
 		</div>
 		<br><br>
-		<table border="1">
-			<thead>
-				<tr>
-					<th>Tgl</th>
-					<th>Judul</th>
-				</tr>
-			</thead>
-			<tbody id="todo-list"></tbody>
-		</table>
+
+		<ul id="todo-list"></ul>
 
 	</fieldset>
 
-<script type="text/javascript" src="user.js"></script>
-<script type="text/javascript">
-	let user = {
-		username: localStorage.getItem('username'),
-		token: localStorage.getItem('token')
-	}
-	checkLogin(user)
-	.then(res => {
-		console.log(res)
-		if(!res){
-			document.location.href="index.html"
+	<script type="text/javascript" src="user.js"></script>
+	<script type="text/javascript">
+		let user = {
+			username: localStorage.getItem('username'),
+			token: localStorage.getItem('token')
 		}
-		domElement(user)
-	})
-	.catch(err => console.log(err.response))
-</script>
+		checkLogin(user)
+		.then(res => {
+			console.log(res)
+			if(!res){
+				document.location.href="index.html"
+			}
+			domElement(user)
+		})
+		.catch(err => console.log(err.response))
+	</script>
 
-<script type="text/javascript" src="todo.js"></script>
+	<script type="text/javascript" src="todo.js"></script>
 
-<script type="text/javascript">
-	getFromLocalStorage()
-</script>
+	<script type="text/javascript">
+		getFromLocalStorage()
+	</script>
 </body>
 </html>

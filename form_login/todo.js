@@ -54,9 +54,10 @@ function addTodo(item){
     if(item !== ''){
         const date = Date.now()
         const todo = {
-            id: new Date(date).toLocaleDateString(),
+            // id: new Date(date).toLocaleDateString(),
+            id: date,
             name: item,
-            completed: true
+            completed: false
         }
         todos.push(todo)
         addLocalStorage(todos)
@@ -65,31 +66,30 @@ function addTodo(item){
 }
 
 function renderTodos(todos){
-    console.log(todos)
-    todoList.innerHTML = ''
-
-    todos.map(item => {
+    todoList.innerHTML=''
+    todos.forEach(function(item){
         const checked = item.completed ? 'checked' : null
+        const li = document.createElement('li')
 
-        const tr = document.createElement('tr')
-
-        tr.setAttribute('class', 'item')
-        tr.setAttribute('data-key', item.id)
+        li.setAttribute('class', 'item')
+        li.setAttribute('data-key', item.id)
 
         if(item.completed === true){
-            tr.classList.add('checked')
+            li.classList.add('checked')
         }
-
-        tr.innerHTML = `
-            <td>${item.id}</td>
-            <td>${item.name}</td>
+        li.innerHTML = `
+            <input type="checkbox" class="checkbox" id="checkbox-${item.id}" ${checked}/>
+            <label for="checkbox-${item.id}">${item.name}</label>
+            <button class="delete-button">Delete</button>
         `
-        todoList.appendChild(tr)
-
+        todoList.append(li)
     })
+
+
 }
 
 function addLocalStorage(todos){
+    console.log(todos)
     localStorage.setItem('todos', JSON.stringify(todos))
     renderTodos(todos)
 }
@@ -102,3 +102,30 @@ function getFromLocalStorage(){
         renderTodos(todos)
     }
 }
+
+function toggle(id){
+    console.log(id)
+    todos.forEach(function(item){
+        if(item.id == id){
+            item.completed = !item.completed
+        }
+    })
+
+    addLocalStorage(todos)
+}
+
+function deleteTodo(id){
+    todos = todos.filter(item => {return item.id != id})
+    addLocalStorage(todos)
+}
+
+todoList.addEventListener('click', function(e){
+    // console.log(e)
+    if(e.target.type === "checkbox"){
+        toggle(e.target.parentElement.getAttribute('data-key'))
+    }
+
+    if(e.target.classList.contains('delete-button')){
+        deleteTodo(e.target.parentElement.getAttribute('data-key'))
+    }
+})

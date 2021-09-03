@@ -5,7 +5,7 @@ async function checkLogin(data){
 }
 
 const domElement = (data) => {
-	console.log(data)
+	// console.log(data)
 	const title = document.getElementById('username-title')
 	const body = document.getElementById('username-body')
 	title.textContent = `Halaman - ${data.username}`

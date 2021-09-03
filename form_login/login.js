@@ -5,7 +5,11 @@ function LoginKanBang(){
 	}
 
 	if(dataLogin.username == "" || dataLogin.password == ""){
-		console.log("Kosong loh bang")
+		if(dataLogin.username == ""){
+			document.querySelector('#check-username').textContent = "Username wajib di isi"
+		}else if(dataLogin.password == ""){
+			document.querySelector('#check-password').textContent = "Password wajib di isi"
+		}
 	}else{
 		ValidationLogin(dataLogin)
 	}

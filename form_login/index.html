@@ -49,6 +49,13 @@
 		background: linear-gradient(to right, #8d7d7d, #280137);
 		color: #fff;
 	}
+	.danger{
+		color: #cc0000;
+		font-weight: 900;
+		font-size:1.3rem;
+		margin-top: -1rem;
+	}
+
 </style>
 
 </head>
@@ -59,8 +66,10 @@
 
 	<div class="form">
 		<input type="text" name="username" id="username" autocomplete="off" autofocus>
+		<small id="check-username" class="danger"></small>
 		<br>
 		<input type="password" name="password" id="password">
+		<small id="check-password" class="danger"></small>
 		<br>
 		<button type="button" onclick="LoginKanBang()">Login</button>
 	</div>
